@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENDLESS CAR GAME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Decorative floating shapes layer -->
+    <div id="floatingShapes" aria-hidden="true"></div>
+
+    <!-- TOP HUD -->
+    <header class="topbar">
+      <div class="top-left">
+        <div class="big-title">ENDLESS CAR GAME</div>
+        <div class="sub-title">MAIN MENU</div>
+        <div class="sub-title">this game is made by TSAR productions</div>
+      </div>
+
+      <div class="hud">
+        <div class="chip" id="highScoreChip">🏆 High: 0</div>
+        <div class="chip" id="coinsChip">💰 0</div>
+      </div>
+    </header>
+
+    <!-- MAIN MENU -->
+    <main id="mainMenu" class="screen screen-center">
+      <div class="menu-card">
+        <h1 class="menu-title">ENDLESS CAR GAME</h1>
+        <div class="menu-label">Main Menu</div>
+
+        <div class="menu-actions">
+          <button id="playBtn" class="btn primary glow">Play</button>
+          <button id="garageBtn" class="btn">Customize / Garage</button>
+          <button id="musicToggleBtn" class="btn">Music: On</button>
+          <button id="exitBtn" class="btn">Exit</button>
+        </div>
+        <div class="hint">Use ← and → keys to move the car</div>
+      </div>
+    </main>
+
+    <!-- GARAGE -->
+    <section id="garage" class="screen hidden">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Garage / Customize</h2>
+          <button id="backFromGarage" class="btn small">Back</button>
+        </div>
+
+        <div id="carList" class="car-list"></div>
+      </div>
+    </section>
+
+    <!-- SEASON & LEVEL SELECT -->
+    <section id="seasonSelect" class="screen hidden">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Select Season</h2>
+          <button id="backFromSeason" class="btn small">Back</button>
+        </div>
+
+        <div class="season-buttons">
+          <button class="btn small seasonBtn" data-season="0">Summer</button>
+          <button class="btn small seasonBtn" data-season="1">Winter</button>
+          <button class="btn small seasonBtn" data-season="2">Autumn</button>
+        </div>
+
+        <div id="levelPanel" class="level-panel"></div>
+      </div>
+    </section>
+
+    <!-- GAME CONTAINER -->
+    <section id="gameScreen" class="screen hidden">
+      <div class="game-top">
+        <div id="progressPanel" class="panel small">Level 1 / 20 — 0%</div>
+        <div class="right-controls">
+          <button id="pauseBtn" class="btn small">⏸ Pause</button>
+        </div>
+      </div>
+
+      <div id="gameContainer" class="game-container">
+        <!-- Slightly narrower and taller canvas -->
+        <canvas id="gameCanvas" width="900" height="680"></canvas>
+      </div>
+    </section>
+
+    <!-- MODAL ROOT -->
+    <div id="modalRoot"></div>
+
+    <!-- AUDIO (do not autoplay; only used in gameplay) -->
+    <audio id="bgMusic" loop preload="auto" src="assets/highway-to-hell.mp3"></audio>
+
+  </div>
+
+  <script src="shop.js"></script>
+  <script src="game.js"></script>
+  <footer>
+    <p>&copy; 2025 All rights reserved.This Game Is Made By TSAR productions</p>
+</footer>
+
+</body>
+</html>
