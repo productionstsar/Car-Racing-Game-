@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Doge — The Car Game</title>
+
+  <!-- Poki SDK (required for ads) -->
+  <script src="https://game-cdn.poki.com/scripts/v2/poki-sdk.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- MAIN WRAPPER -->
+  <div id="app">
+
+    <!-- TOP-RIGHT STATS -->
+    <div id="topStats" class="top-stats">
+      <div>High Score: <span id="uiHigh">0</span></div>
+      <div>Coins: <span id="uiCoins">0</span></div>
+    </div>
+
+    <!-- LOADER (simple) -->
+    <div id="loader" class="overlay visible">
+      <div class="loader-card">
+        <div class="loader-title">Loading assets…</div>
+        <div class="loader-bar">
+          <div id="loader-progress" class="loader-progress"></div>
+        </div>
+        <div class="loader-hint">Click to start (enables audio)</div>
+      </div>
+    </div>
+
+    <!-- MAIN MENU -->
+    <section id="mainMenu" class="screen theme-gradient visible">
+      <div class="menu-frame">
+        <div class="game-title">DOGE — THE CAR GAME</div>
+        <div class="menu-box">
+          <button id="btnPlay" class="btn primary">Play</button>
+          <button id="btnGarage" class="btn">Customize / Garage</button>
+          <button id="btnMusic" class="btn">Music: ON</button>
+          <div class="theme-row">
+            <label class="theme-label">Theme</label>
+            <button id="btnTheme" class="btn small">Light</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODE SELECT -->
+    <section id="modeSelect" class="screen theme-gradient">
+      <div class="box-with-back">
+        <button id="btnBackMode" class="back small">‹ Back</button>
+        <div class="section-box">
+          <div class="section-title">Select Game Mode</div>
+          <div class="vertical-buttons">
+            <button id="btnAdventure" class="btn large">Adventure</button>
+            <button id="btnEndless" class="btn large">Endless</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENDLESS DIFFICULTY -->
+    <section id="endlessMenu" class="screen theme-gradient">
+      <div class="box-with-back">
+        <button id="btnBackEndless" class="back small">‹ Back</button>
+        <div class="section-box">
+          <div class="section-title">Endless Mode</div>
+          <div class="vertical-buttons">
+            <button id="btnEasy" class="btn large">Easy</button>
+            <button id="btnMedium" class="btn large">Medium</button>
+            <button id="btnHard" class="btn large">Hard</button>
+            <button id="btnExtreme" class="btn large">Extreme</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVENTURE SEASONS -->
+    <section id="adventureSeasons" class="screen theme-gradient">
+      <div class="box-with-back">
+        <button id="btnBackSeasons" class="back small">‹ Back</button>
+        <div class="section-box">
+          <div class="section-title">Adventure — Seasons</div>
+          <div class="season-row">
+            <button id="btnSummer" class="btn season">Summer</button>
+            <button id="btnWinter" class="btn season">Winter</button>
+            <button id="btnAutumn" class="btn season">Autumn</button>
+            <button id="btnRainy" class="btn season">Rainy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVENTURE LEVELS -->
+    <section id="adventureLevels" class="screen theme-gradient">
+      <div class="box-with-back">
+        <button id="btnBackLevels" class="back small">‹ Back</button>
+        <div class="section-box">
+          <div id="levelHeader" class="section-title">Select Level</div>
+          <div id="levelList" class="level-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GARAGE -->
+    <section id="garage" class="screen theme-gradient">
+      <div class="box-with-back">
+        <button id="btnBackGarage" class="back small">‹ Back</button>
+        <div class="section-box">
+          <div class="section-title">Garage — Cars</div>
+          <div id="garageList" class="garage-row"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section id="gameScreen" class="screen game-screen">
+      <canvas id="gameCanvas" aria-label="Game canvas"></canvas>
+
+      <div class="hud-left">
+        <div class="hud-item">Score: <span id="gameScore">0</span></div>
+        <div class="hud-item">Coins: <span id="gameCoins">0</span></div>
+      </div>
+
+      <button id="btnPause" class="btn pause">II</button>
+    </section>
+
+    <!-- POPUP / PAUSE OVERLAY -->
+    <div id="pauseOverlay" class="overlay hidden">
+      <div class="popup-card">
+        <div id="popupMessage" class="popup-text">Paused</div>
+        <div class="popup-actions">
+          <button id="popupBtn1" class="btn">Resume</button>
+          <button id="popupBtn2" class="btn">Main Menu</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
